@@ -1,18 +1,18 @@
-// Récupérer l'élément d'affichage du résultat
-var resultElement = document.getElementById('result');
-
-// Fonction pour ajouter des caractères à l'affichage du résultat
 function appendToResult(value) {
-  resultElement.value += value;
+  document.getElementById('result').value += value;
 }
 
-// Fonction pour effacer l'affichage du résultat
 function clearResult() {
-  resultElement.value = '';
+  document.getElementById('result').value = '';
 }
 
-// Fonction pour calculer et afficher le résultat
+function backspace() {
+  var result = document.getElementById('result').value;
+  document.getElementById('result').value = result.slice(0, -1);
+}
+
 function calculateResult() {
-  var result = eval(resultElement.value); // Attention : l'utilisation de eval() peut présenter des risques de sécurité
-  resultElement.value = result;
+  var result = document.getElementById('result').value;
+  var calculatedResult = eval(result);
+  document.getElementById('result').value = calculatedResult;
 }

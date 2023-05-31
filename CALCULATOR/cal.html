@@ -1,36 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="cal.css">
-    <title>Document</title>
+  <title>Calculatrice Scientifique</title>
+  <link rel="stylesheet" type="text/css" href="cal.css">
 </head>
-<body><body>
-    <div class="calculator">
-      <input type="text" id="result" disabled>
+<body>
+  <div class="calculator">
+    <h1 style="color:#625b5b">GhostCalculator</h1>
+    <input type="text" id="result">
+    <div class="buttons">
+      <button class="function-button" onclick="clearResult()">C</button>
+      <button class="function-button" onclick="appendToResult('Math.sqrt(')">√</button>
+      <button class="function-button" onclick="appendToResult('Math.pow(')">^</button>
+      <button class="function-button" onclick="backspace()">⌫</button>
+      <button class="function-button" onclick="appendToResult('Math.sin(')">sin</button>
+      <button class="function-button" onclick="appendToResult('Math.cos(')">cos</button>
+      <button class="function-button" onclick="appendToResult('Math.tan(')">tan</button>
+      <button class="function-button" onclick="appendToResult('Math.log10(')">log</button>
+      <button class="function-button" onclick="appendToResult('Math.log(')">ln</button>
+      <button class="function-button" onclick="appendToResult('Math.exp(')">e^</button>
       <button onclick="appendToResult('7')">7</button>
-      <!-- Ajoutez les autres boutons numériques et opérateurs -->
-      <button onclick="appendToResult('sin(')">sin</button>
-      <button onclick="appendToResult('cos(')">cos</button>
-      <button onclick="appendToResult('tan(')">tan</button>
-      <!-- Ajoutez les autres fonctions scientifiques -->
-      <button onclick="clearResult()">C</button>
+      <button onclick="appendToResult('8')">8</button>
+      <button onclick="appendToResult('9')">9</button>
+      <button class="operator-button" onclick="appendToResult('/')">/</button>
+      <button onclick="appendToResult('4')">4</button>
+      <button onclick="appendToResult('5')">5</button>
+      <button onclick="appendToResult('6')">6</button>
+      <button class="operator-button" onclick="appendToResult('*')">x</button>
+      <button onclick="appendToResult('1')">1</button>
+      <button onclick="appendToResult('2')">2</button>
+      <button onclick="appendToResult('3')">3</button>
+      <button class="operator-button" onclick="appendToResult('-')">-</button>
+      <button onclick="appendToResult('0')">0</button>
+      <button onclick="appendToResult('.')">.</button>
+      <button onclick="appendToResult('(')">(</button>
+      <button onclick="appendToResult(')')">)</button>
+      <button class="operator-button" onclick="appendToResult('+')">+</button>
       <button onclick="calculateResult()">=</button>
     </div>
-    <script src="scientific-calculator.js"></script>
-  </body>
-  </html>
-  Créez un fichier JavaScript appelé "scientific-calculator.js" et liez-le à votre page HTML.
-  
-  Dans le fichier "scientific-calculator.js", définissez les fonctions pour gérer les actions de la calculatrice scientifique. Par exemple :
-  
-  javascript
-  Copy code
-  
-  
-  
-  
-  
+  </div>
+  <script src="cal.js"></script>
+</body>
 </html>

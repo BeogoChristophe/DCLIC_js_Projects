@@ -1,0 +1,53 @@
+fieldset{
+    background-color: #ff7722;
+    border-radius: 12px;
+    display: none;
+}
+
+.infos{
+    border: 12px solid #FF7722;
+    border-radius: 2px;
+    display: grid;
+    height: 100%;
+    padding: 20px;
+    width: 70%;
+    margin: 0 auto;
+    box-shadow:  2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.infos .close{
+    float: right;
+    cursor: pointer;
+    font-size: 28px;
+}
+
+#photo{
+    width: 50%;
+    height: 50%;
+}
+/*
+input{
+    width: 85%;
+}*/
+
+.btn{
+    width: 40%;
+    border-radius: 5px;
+}
+
+.todo{
+    border: 2px 5px solid #ff7722;
+}
+
+input{
+    border-radius: 12px;
+}
+
+textarea{
+    border-radius: 12px;
+}
+
+:required
+{
+background-color: red;
+}

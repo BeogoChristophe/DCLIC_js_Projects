@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ghost.css">
+    <title>yes</title>
+</head>
+<body>
+    <div class="infos">  <h1>Ajouter vos informations</h1>
+
+        <label for="nom">Nom :</label>
+
+        <input type="text" id="nom">
+    
+        <label for="age">Âge :</label>
+        <input type="number" id="age">
+    
+        <label for="ville">Ville :</label>
+        <input type="text" id="ville">
+    
+        <label for="photo">Ajouter une photo :</label>
+        <input type="file" id="photo">
+    
+        <button class="btn" onclick="ajouterInformation()">Ajouter à la to-do list</button>
+    
+        <ul id="todoList"></ul>
+    
+</div>
+
+    <form method="post" action="traitement.php">
+        <fieldset classe="fieldset">
+        <legend>Vos coordonnées</legend> <!-- Titre du fieldset -->
+        <label for="nom">Quel est votre nom ?</label><br>
+        <input type="text" name="nom" id="nom" /><br>
+        <label for="prenom">Quel est votre prénom ? </label><br>
+        <input type="text" name="prenom" id="prenom"  /><br>
+        <label for="email">Quel est votre e-mail ?</label><br>
+        <input type="email" name="email" id="email"  />
+        </fieldset>
+        <fieldset classe="fieldset">
+        <legend>Votre souhait</legend> <!-- Titre du fieldset -->
+        <p>
+        Faites un souhait que vous voudriez voir exaucé : <br>
+        <input type="radio" name="souhait" value="riche"
+        id="riche" /> <label for="riche">Etre riche</label>
+        <input type="radio" name="souhait" value="celebre"
+        id="celebre" /> <label for="celebre">Etre célèbre</label>
+        <input type="radio" name="souhait" value="intelligent"
+        id="intelligent" /> <label for="intelligent">Etre
+        <strong>encore</strong> plus intelligent</label>
+        <input type="radio" name="souhait" value="autre"
+        id="autre" /> <label for="autre">Autre...</label>
+         </p>
+         <p>
+             <label for="precisions">Si "Autre", veuillez préciser
+             :</label><br>
+              <textarea name="precisions" id="precisions" cols="40"
+             rows="4"></textarea>
+        </p>
+        </fieldset>
+    </form>
+    
+    <script>
+        var todoList = [];
+
+        function ajouterInformation() {
+            var nom = document.getElementById("nom").value;
+            var age = document.getElementById("age").value;
+            var ville = document.getElementById("ville").value;
+
+            var photo = document.getElementById("photo").files[0];
+
+            var item = {
+                nom: nom,
+                age: age,
+                ville: ville,
+                photo: photo
+            };
+
+            todoList.push(item);
+            afficherTodoList();
+            reinitialiserChamps();
+        }
+
+        function supprimerInformation(index) {
+            todoList.splice(index, 1);
+            afficherTodoList();
+        }
+
+        function afficherTodoList() {
+            var todoListDiv = document.getElementById("todoList");
+            todoListDiv.innerHTML = "";
+
+            for (var i = 0; i < todoList.length; i++) {
+                var item = todoList[i];
+
+                var todoItemDiv = document.createElement("div");
+                todoItemDiv.classList.add("todo-item");
+
+                var text = document.createElement("p");
+                text.innerHTML = "Nom: " + item.nom + ", Âge: " + item.age + ", Ville: " + item.ville;
+                todoItemDiv.appendChild(text);
+
+                if (item.photo) {
+                    var image = document.createElement("img");
+                    image.src = URL.createObjectURL(item.photo);
+                    image.style.maxWidth = "200px";
+                    todoItemDiv.appendChild(image);
+                }
+
+                var deleteButton = document.createElement("button");
+                deleteButton.innerHTML = "Supprimer";
+                deleteButton.setAttribute("onclick", "supprimerInformation(" + i + ")");
+                todoItemDiv.appendChild(deleteButton);
+
+                todoListDiv.appendChild(todoItemDiv);
+            }
+        }
+
+        function reinitialiserChamps() {
+            document.getElementById("nom").value = "";
+            document.getElementById("age").value = "";
+            document.getElementById("ville").value = "";
+            document.getElementById("photo").value = "";
+        }
+    </script>
+</body>
+</html>
