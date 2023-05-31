@@ -1,0 +1,43 @@
+.btnPopup{
+    background-color: orangered;
+    padding: 1em 2em;
+    font-size: 14pt;
+    color: #000;
+    cursor: pointer;
+    translate:calc(1,1,2);
+    border-radius: 5px;
+    box-shadow: 15px 20px 0 rgba(245, 23, 7, 0.5);
+}
+
+.btnPopup:hover{
+    background-color: gainsboro;
+}
+
+.Popup {
+    position:fixed;
+    left: 0px;
+    top: 8px;
+    background-color: rgb(210, 210, 210.2);
+    height: 100%; 
+    width: 100%;
+    display: none;
+  }
+  
+  .overlay {
+    margin: 20% auto;
+    width: 70%;
+    background-color: #ff7722;
+    border-radius: 5px;
+    box-shadow: 15px 20px 0 rgba(245, 100, 4, 0.5);
+    padding: 1em;
+  }
+  
+  .close {
+    float: right;
+    cursor: pointer;
+    font-size: 28px;
+  }
+
+  p{
+    font-size: 28px;
+  }
